@@ -16,4 +16,8 @@ class OrdemServico{
 
   });
 
+  String ficha() {
+    return '#$numero | Cliente: $cliente | R\$ ${valor.toStringAsFixed(2)}';
+  }
+
 }
