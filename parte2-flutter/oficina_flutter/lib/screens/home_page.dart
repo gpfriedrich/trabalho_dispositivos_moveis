@@ -9,10 +9,7 @@ import 'detalhes_page.dart';
 class HomePage extends StatefulWidget {
   final Oficina oficina;
 
-  const HomePage({
-    super.key,
-    required this.oficina,
-  });
+  const HomePage({super.key, required this.oficina});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -29,11 +26,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> abrirCadastro() async {
-    OrdemServico? novaOrdem =
-        await Navigator.of(context).push<OrdemServico>(
-      MaterialPageRoute(
-        builder: (context) => const CadastroPage(),
-      ),
+    OrdemServico? novaOrdem = await Navigator.of(context).push<OrdemServico>(
+      MaterialPageRoute(builder: (context) => const CadastroPage()),
     );
 
     if (novaOrdem != null) {
@@ -46,11 +40,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-
-      appBar: AppBar(
-        title: Text(oficina.nome),
-      ),
+      appBar: AppBar(title: Text(oficina.nome)),
 
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -65,6 +55,7 @@ class _HomePageState extends State<HomePage> {
               style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
+                color: Color(0xFFE86A17),
               ),
             ),
 
@@ -81,16 +72,12 @@ class _HomePageState extends State<HomePage> {
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => DetalhePage(
-                            ordem: ordem,
-                          ),
+                          builder: (context) => DetalhePage(ordem: ordem),
                         ),
                       );
                     },
 
-                    child: OrdemServicoCard(
-                      ordem: ordem,
-                    ),
+                    child: OrdemServicoCard(ordem: ordem),
                   );
                 },
               ),
